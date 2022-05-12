@@ -1,20 +1,16 @@
-import axios, { AxiosError, AxiosResponse } from "axios";
-import type { AxiosInstance, AxiosRequestConfig } from "axios";
+import axios, { AxiosError, AxiosResponse } from 'axios';
+import type { AxiosInstance, AxiosRequestConfig } from 'axios';
 
-import { isNode, pick } from "./utilts";
-import { Logger } from "../../utils";
-import type { StatusError } from "./models";
+import { isNode, pick } from './utilts';
+import type { StatusError } from './models';
 
-import { SummonerResource, LeagueResource } from "./resources";
-import { Region } from "./types";
-import { region_map } from "./models";
+import { SummonerResource, LeagueResource } from './resources';
+import { Region } from './types';
+import { regionMap } from './models';
 
 export type RiotErrorResponse = {};
-const allowedAxiosOptions = ["headers", "timeout", "proxy", "retries"] as const;
-export type GenericApiResponse =
-  | RiotErrorResponse
-  | StatusError
-  | { status: 200; data: any };
+const allowedAxiosOptions = ['headers', 'timeout', 'proxy', 'retries'] as const;
+export type GenericApiResponse = RiotErrorResponse | StatusError | { status: 200; data: any };
 export type DahvidClientConfig = {
   /**
    * apiKey is required to make requests to the riot API
@@ -71,7 +67,7 @@ export type DahvidClientConfig = {
 export class DahvidClient {
   private readonly axios: AxiosInstance;
   /** @internal */
-  private readonly auth_token: string;
+  private readonly authToken: string;
   private readonly defaultRegion: string;
 
   /**
@@ -88,30 +84,21 @@ export class DahvidClient {
 
   constructor(config: DahvidClientConfig) {
     if (!isNode()) {
-      Logger.fatal(
-        "For security reasons please only run DahvidClient on server-side applications. (running on client-side)"
+      throw new Error(
+        'For security reasons please only run DahvidClient on server-side applications. (running on client-side)',
       );
     }
 
     const { apiKey, defaultRegion, ...axiosOptions } = config;
-    this.auth_token = apiKey;
-    this.defaultRegion = defaultRegion || "oc1";
+    this.authToken = apiKey;
+    this.defaultRegion = defaultRegion || 'oc1';
 
-    const filteredAxiosOptions = pick<AxiosRequestConfig>(
-      axiosOptions,
-      ...allowedAxiosOptions
-    );
+    const filteredAxiosOptions = pick<AxiosRequestConfig>(axiosOptions, ...allowedAxiosOptions);
 
     this.axios = axios.create({
-      baseURL: "https://REGION.api.riotgames.com",
+      baseURL: 'https://REGION.api.riotgames.com',
       headers: { ...config.headers, ...filteredAxiosOptions.headers },
     } as AxiosRequestConfig);
-
-    const axiosOnNetworkError = () => {
-      console.log("We experienced a network error")
-    };
-
-    this.axios.interceptors.response.use(undefined, axiosOnNetworkError);
 
     this.summoner = new SummonerResource(this);
     this.league = new LeagueResource(this);
@@ -122,24 +109,18 @@ export class DahvidClient {
       ...config,
       headers: {
         ...config.headers,
-        "X-Riot-Token": this.auth_token,
+        'X-Riot-Token': this.authToken,
       },
     };
   }
 
-  private _applyRegion(
-    config: AxiosRequestConfig,
-    region: Region
-  ): AxiosRequestConfig {
-    const _region = region_map[region] || region_map[this.defaultRegion];
-    const base_url = "https://REGION.api.riotgames.com".replace(
-      "REGION",
-      _region
-    );
+  private _applyRegion(config: AxiosRequestConfig, region: Region): AxiosRequestConfig {
+    const _region = regionMap[region] || regionMap[this.defaultRegion];
+    const baseUrl = 'https://REGION.api.riotgames.com'.replace('REGION', _region);
 
     return {
       ...config,
-      baseURL: base_url,
+      baseURL: baseUrl,
     };
   }
 
@@ -149,13 +130,13 @@ export class DahvidClient {
   async _apiCall<T extends GenericApiResponse>({
     path,
     region,
-    method = "GET",
+    method = 'GET',
     query,
     data,
   }: {
     path: string;
     region: Region;
-    method?: "GET" | "POST";
+    method?: 'GET' | 'POST';
     query?: Record<string, any>;
     data?: any;
     auth?: string;
@@ -177,7 +158,7 @@ export class DahvidClient {
     } catch (e) {
       const err = e as AxiosError;
 
-      if (typeof err.response !== "undefined") {
+      if (typeof err.response !== 'undefined') {
         throw err;
       }
 

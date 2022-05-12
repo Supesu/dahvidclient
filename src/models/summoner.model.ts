@@ -1,12 +1,12 @@
-import { stringOfLength, phantomstring } from "../types";
+import { stringOfLength, stringLengthInRange } from '../types';
 
 export type SummonerResponse = Summoner;
 export type Summoner = {
-  accountId: phantomstring<0, 56>;
+  accountId: stringLengthInRange<0, 56>;
   profileIconId: number;
   revisionDate: bigint;
   name: string;
-  id: phantomstring<0, 63>;
+  id: stringLengthInRange<0, 63>;
   puuid: stringOfLength<78>;
   summonerLevel: bigint;
 };

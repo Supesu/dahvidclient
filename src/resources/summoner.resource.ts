@@ -1,9 +1,9 @@
 // TODO: finish generic functions in client;
 // TODO: finish summoner resource and test
 
-import { BaseResource } from "./base.resource";
-import { SummonerResponse } from "../models";
-import { createstringOfLength, stringOfLength, Region } from "../types";
+import { BaseResource } from './base.resource';
+import { SummonerResponse } from '../models';
+import { createstringOfLength, stringOfLength, Region } from '../types';
 
 /**
  * Utilities to help obtain the summoner information by an identifier provided (region specific).
@@ -11,8 +11,7 @@ import { createstringOfLength, stringOfLength, Region } from "../types";
  * @category Resource
  */
 export class SummonerResource extends BaseResource {
-  private readonly ENDPOINT_VERSION: stringOfLength<2> =
-    createstringOfLength("v4", 2);
+  private readonly ENDPOINT_VERSION: stringOfLength<2> = createstringOfLength('v4', 2);
 
   /**
    * Obtains the current endpoint version that DahvidClient is requesting too
@@ -33,10 +32,7 @@ export class SummonerResource extends BaseResource {
    * @param { Region } region Region to execute request to
    * @returns { Promise<SummonerResponse> } Summoner information | StatusError | AxiosError
    */
-  public async byName(
-    summonerName: string,
-    region: Region
-  ): Promise<SummonerResponse> {
+  public async byName(summonerName: string, region: Region): Promise<SummonerResponse> {
     return await this._client._apiCall<SummonerResponse>({
       path: `/lol/summoner/v4/summoners/by-name/${summonerName}`,
       region,
@@ -44,16 +40,13 @@ export class SummonerResource extends BaseResource {
   }
 
   /**
-   *Obtain summoner information using the encrypted puuid (not region specific)
+   * Obtain summoner information using the encrypted puuid (not region specific)
    *
    * @param encryptedPUUID Summoner Identifier
    * @param region Region to execute request to
    * @returns { Promise<SummonerResponse> } Summoner information | StatusError | AxiosError
    */
-  public async byPuuid(
-    encryptedPUUID: string,
-    region: Region
-  ): Promise<SummonerResponse> {
+  public async byPuuid(encryptedPUUID: string, region: Region): Promise<SummonerResponse> {
     return await this._client._apiCall<SummonerResponse>({
       path: `/lol/summoner/v4/summoners/by-puuid/${encryptedPUUID}`,
       region,
@@ -67,10 +60,7 @@ export class SummonerResource extends BaseResource {
    * @param region Region to execute request to
    * @returns { Promise<SummonerResponse> } Summoner information | StatusError | AxiosError
    */
-  public async byAccount(
-    encryptedAccountId: string,
-    region: Region
-  ): Promise<SummonerResponse> {
+  public async byAccount(encryptedAccountId: string, region: Region): Promise<SummonerResponse> {
     return await this._client._apiCall<SummonerResponse>({
       path: `/lol/summoner/v4/summoners/by-account/${encryptedAccountId}`,
       region,
@@ -84,10 +74,7 @@ export class SummonerResource extends BaseResource {
    * @param region Region to execute request to
    * @returns { Promise<SummonerResponse> } Summoner information | StatusError | AxiosError
    */
-  public async bySummonerId(
-    encryptedSummonerId: string,
-    region: Region
-  ): Promise<SummonerResponse> {
+  public async bySummonerId(encryptedSummonerId: string, region: Region): Promise<SummonerResponse> {
     return await this._client._apiCall<SummonerResponse>({
       path: `/lol/summoner/v4/summoners/${encryptedSummonerId}`,
       region,
@@ -98,8 +85,6 @@ export class SummonerResource extends BaseResource {
    * @deprecated Dahvidclient does not support this method any longer and should not be called
    */
   public async me() {
-    throw new Error(
-      "DahvidClient no longer supports summoner.me() please don't call this method"
-    );
+    throw new Error("DahvidClient no longer supports summoner.me() please don't call this method");
   }
 }

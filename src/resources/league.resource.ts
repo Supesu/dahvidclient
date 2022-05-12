@@ -1,12 +1,6 @@
-import { BaseResource } from "./base.resource";
-import {
-  LeagueEntryDTO,
-  LeagueListDTO,
-  Queue,
-  Division,
-  Tier,
-} from "../models";
-import { createstringOfLength, stringOfLength, Region } from "../types";
+import { BaseResource } from './base.resource';
+import { LeagueEntryDTO, LeagueListDTO, Queue, Division, Tier } from '../models';
+import { createstringOfLength, stringOfLength, Region } from '../types';
 
 /**
  * Utilities to help obtain league entries by an identifier provided (region specific).
@@ -14,8 +8,7 @@ import { createstringOfLength, stringOfLength, Region } from "../types";
  * @category Resource
  */
 export class LeagueResource extends BaseResource {
-  private readonly ENDPOINT_VERSION: stringOfLength<2> =
-    createstringOfLength("v4", 2);
+  private readonly ENDPOINT_VERSION: stringOfLength<2> = createstringOfLength('v4', 2);
 
   /**
    * Obtains the current endpoint version that DahvidClient is requesting too
@@ -36,10 +29,7 @@ export class LeagueResource extends BaseResource {
    * @param { Region } region Region to execute request to
    * @returns { Promise<LeagueListDTO> }
    */
-  public async challengerLeagues(
-    queue: Queue,
-    region: Region
-  ): Promise<LeagueListDTO> {
+  public async challengerLeagues(queue: Queue, region: Region): Promise<LeagueListDTO> {
     return await this._client._apiCall<LeagueListDTO>({
       path: `/lol/league/v4/challengerleagues/by-queue/${queue}`,
       region,
@@ -53,10 +43,7 @@ export class LeagueResource extends BaseResource {
    * @param { Region } region Region to execute request to
    * @returns { Promise<LeagueListDTO> }
    */
-  public async grandmasterLeagues(
-    queue: Queue,
-    region: Region
-  ): Promise<LeagueListDTO> {
+  public async grandmasterLeagues(queue: Queue, region: Region): Promise<LeagueListDTO> {
     return await this._client._apiCall<LeagueListDTO>({
       path: `/lol/league/v4/grandmasterleagues/by-queue/${queue}`,
       region,
@@ -70,10 +57,7 @@ export class LeagueResource extends BaseResource {
    * @param { Region } region Region to execute request to
    * @returns { Promise<LeagueListDTO> }
    */
-  public async masterLeagues(
-    queue: Queue,
-    region: Region
-  ): Promise<LeagueListDTO> {
+  public async masterLeagues(queue: Queue, region: Region): Promise<LeagueListDTO> {
     return await this._client._apiCall<LeagueListDTO>({
       path: `/lol/league/v4/masterleagues/by-queue/${queue}`,
       region,
@@ -87,10 +71,7 @@ export class LeagueResource extends BaseResource {
    * @param { Region } region Region to execute request to
    * @returns { Promise<LeagueListDTO> }
    */
-  public async byLeagueId(
-    leagueId: string,
-    region: Region
-  ): Promise<LeagueListDTO> {
+  public async byLeagueId(leagueId: string, region: Region): Promise<LeagueListDTO> {
     return await this._client._apiCall<LeagueListDTO>({
       path: `/lol/league/v4/leagues/${leagueId}`,
       region,
@@ -104,10 +85,7 @@ export class LeagueResource extends BaseResource {
    * @param { Region } region Region to execute request to
    * @returns
    */
-  public async bySummonerId(
-    encryptedSummonerId: string,
-    region: Region
-  ): Promise<LeagueEntryDTO[]> {
+  public async bySummonerId(encryptedSummonerId: string, region: Region): Promise<LeagueEntryDTO[]> {
     return await this._client._apiCall<LeagueEntryDTO[]>({
       path: `/lol/league/v4/entries/by-summoner/${encryptedSummonerId}`,
       region,
@@ -123,12 +101,7 @@ export class LeagueResource extends BaseResource {
    * @param { Region } region Region to execute request to
    * @returns { Promise<LeagueEntryDTO> }
    */
-  public async entries(
-    queue: Queue,
-    tier: Tier,
-    division: Division,
-    region: Region
-  ): Promise<LeagueEntryDTO> {
+  public async entries(queue: Queue, tier: Tier, division: Division, region: Region): Promise<LeagueEntryDTO> {
     return await this._client._apiCall<LeagueEntryDTO>({
       path: `/lol/league/v4/entries/${queue}/${tier}/${division}`,
       region,

@@ -6,15 +6,9 @@ export type LeagueListDTO = {
   queue: string;
 };
 
-export type Queue = "RANKED_SOLO_5x5" | "RANKED_FLEX_SR" | "RANKED_FLEX_TT";
-export type Division = "I" | "II" | "III" | "IV";
-export type Tier =
-  | "DIAMOND"
-  | "PLATINUM"
-  | "GOLD"
-  | "SILVER"
-  | "BRONZE"
-  | "IRON";
+export type Queue = 'RANKED_SOLO_5x5' | 'RANKED_FLEX_SR' | 'RANKED_FLEX_TT';
+export type Division = 'I' | 'II' | 'III' | 'IV';
+export type Tier = 'DIAMOND' | 'PLATINUM' | 'GOLD' | 'SILVER' | 'BRONZE' | 'IRON';
 
 export type LeagueItemDTO = {
   freshBlood: boolean;

@@ -1,4 +1,4 @@
-import type { DahvidClient } from "../client";
+import type { DahvidClient } from '../client';
 
 export class BaseResource {
   protected readonly _client: DahvidClient;
