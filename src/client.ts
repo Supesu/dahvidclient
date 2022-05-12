@@ -78,7 +78,7 @@ export class DahvidClient {
 
   /**
    * @category Resource
-   * @inheritDoc SummonerResource
+   * @inheritDoc LeagueResource
    */
   league: LeagueResource;
 

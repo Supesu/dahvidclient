@@ -1,0 +1,11 @@
+{
+  // This config only used to generate the type definitions in index.d.ts
+  // The actual options used to compile pre-bundling are included in rollup.config.js
+  "extends": "./tsconfig.json",
+  "include": ["src/**/*.ts"],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "declaration": true,
+    "emitDeclarationOnly": true
+  }
+}
