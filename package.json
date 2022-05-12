@@ -6,7 +6,7 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "lib/**/*"
+    "/dist"
   ],
   "scripts": {
     "build": "npm run build:clean && npm run build:package && npm run build:types",
