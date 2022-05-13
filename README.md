@@ -166,7 +166,7 @@ Distributed under the ISC License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@supesuOCE](https://twitter.com/supesuOCE) - supesu.dev@gmail.com
+Kian Merchant - [@supesuOCE](https://twitter.com/supesuOCE) - supesu.dev@gmail.com
 
 Project Link: [https://github.com/supesu/DahvidClient](https://github.com/supesu/DahvidClient)
 
