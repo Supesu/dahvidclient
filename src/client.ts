@@ -4,7 +4,7 @@ import type { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { isNode, pick } from './utilts';
 import type { StatusError } from './models';
 
-import { SummonerResource, LeagueResource } from './resources';
+import { SummonerResource, LeagueResource, MatchResource } from './resources';
 import { Region } from './types';
 import { regionMap } from './models';
 
@@ -82,6 +82,12 @@ export class DahvidClient {
    */
   league: LeagueResource;
 
+  /**
+   * @category Resource
+   * @inheritDoc MatchResource
+   */
+  match: MatchResource;
+
   constructor(config: DahvidClientConfig) {
     if (!isNode()) {
       throw new Error(
@@ -102,6 +108,7 @@ export class DahvidClient {
 
     this.summoner = new SummonerResource(this);
     this.league = new LeagueResource(this);
+    this.match = new MatchResource(this);
   }
 
   private _authorizeRequest(config: AxiosRequestConfig): AxiosRequestConfig {

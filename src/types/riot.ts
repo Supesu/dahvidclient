@@ -26,3 +26,5 @@ export type Region =
   | 'americas'
   | 'asia'
   | 'europe';
+
+export type Continent = 'americas' | 'asia' | 'europe'
