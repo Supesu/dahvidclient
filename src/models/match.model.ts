@@ -13,11 +13,11 @@ export type MetadataDto = {
 export type InfoDto = {
   gameCreation: number; // Unix Timestamp for when the game is created on the game server (i.e, the loading screen).
   gameDuration: number /* Prior to patch 11.20, this field returns the game length in milliseconds calculated from gameEndTimestamp - gameStartTimestamp.
-                          post patch 11.20, this field returns the max timePlayed of any participant in the game in seconds, which amkes the behavior of this field 
+                          post patch 11.20, this field returns the max timePlayed of any participant in the game in seconds, which makes the behavior of this field 
                           consistent with that of match-v4. the best way to handling the change in this field is to treat the value as milliseconds if the gameEndTimestamp
                           field isn't in the response and to treat the value as seconds if gameEndTimestamp is in the response.
                         */;
-  gameEndTimestamp: number /* Unix temstamp for when the match ends on the game server. This timestamp can occasionally be significantly longer than when the match "ends". The most reliable 
+  gameEndTimestamp: number /* Unix Timestamp for when the match ends on the game server. This timestamp can occasionally be significantly longer than when the match "ends". The most reliable 
                               way of determining the timestamp for the end of the match would be to add the max time played of any participant to the gameStartTimestamp. this field was added 
                               to match-v5 in patch 11.20 on Oct 5th, 2021.
                              */;
@@ -118,10 +118,10 @@ export type ParticipantDto = {
   summonerName: string;
   teamEarlySurrendered: boolean;
   teamId: number;
-  teamPosition: string /* Both IndividualPosition and teamPosition are computed by the game server and are different versions of hte most likely position played by a player. 
+  teamPosition: string /* Both IndividualPosition and teamPosition are computed by the game server and are different versions of the most likely position played by a player. 
                           The individualPosition is the best guess for which position the player actually played in isolation of anything else. the teamPosition is the best guess
                           for which position the player actually played if we add the constraint that each team must have one top player, one jungle, one middle, ect. Generally the 
-                          recommendation is to use the teamPosition field ovr the individualPosition field.
+                          recommendation is to use the teamPosition field over the individualPosition field.
                         */;
   teamCCingOthers: number;
   timePlayed: number;

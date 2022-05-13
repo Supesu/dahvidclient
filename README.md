@@ -11,21 +11,17 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
 <h3 align="center">project_title</h3>
 
   <p align="center">
     project_description
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/supesu/DahvidClient"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/supesu/DahvidClient/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/supesu/DahvidClient/issues">Request Feature</a>
   </p>
 </div>
 
@@ -181,6 +177,7 @@ Project Link: [https://github.com/supesu/DahvidClient](https://github.com/supesu
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
+* [Squire Pug](https://twitter.com/EmJaeCaer) Helped in starting this journey (introduction to axios).
 * [Akahu SDK](https://github.com/akahu-io/akahu-sdk-js) this project is built ontop of the amazing work they did.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -189,13 +186,13 @@ Project Link: [https://github.com/supesu/DahvidClient](https://github.com/supesu
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/supesu/DahvidClient.svg?style=for-the-badge
+[contributors-url]: https://github.com/supesu/DahvidClient/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/supesu/DahvidClient.svg?style=for-the-badge
+[forks-url]: https://github.com/supesu/DahvidClient/network/members
+[stars-shield]: https://img.shields.io/github/stars/supesu/DahvidClient.svg?style=for-the-badge
+[stars-url]: https://github.com/supesu/DahvidClient/stargazers
+[issues-shield]: https://img.shields.io/github/issues/supesu/DahvidClient.svg?style=for-the-badge
+[issues-url]: https://github.com/supesu/DahvidClient/issues
+[license-shield]: https://img.shields.io/github/license/supesu/DahvidClient.svg?style=for-the-badge
 [product-screenshot]: images/screenshot.png
