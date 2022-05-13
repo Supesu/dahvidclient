@@ -1,6 +1,6 @@
 {
   "name": "dahvidclient",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A riot api wrapper",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
