@@ -59,8 +59,6 @@ export type DahvidClientConfig = {
 };
 
 /**
- * Based off the Akahu API's SDK, all credit goes to them when due.
- * https://github.com/akahu-io/akahu-sdk-js
  *
  * @category API client
  */
