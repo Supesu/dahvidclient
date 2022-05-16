@@ -5,6 +5,17 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "keywords": [
+    "node",
+    "js",
+    "javascript",
+    "typescript",
+    "riot",
+    "wrapper",
+    "league",
+    "lol",
+    "league of legends"
+  ],
   "files": [
     "/dist"
   ],
@@ -18,7 +29,7 @@
     "lint": "tslint -p tsconfig.json",
     "test": "echo \"No test specified\""
   },
-  "author": "Kian Merchant <supesu.dev@gmail.com>",
+  "author": "Kian Merchant <supesu.dev@gmail.com> (https://supesu.dev/)",
   "license": "ISC",
   "repository": {
     "type": "git",
