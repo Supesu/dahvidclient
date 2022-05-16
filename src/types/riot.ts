@@ -25,6 +25,7 @@ export type Region =
   | 'ru'
   | 'americas'
   | 'asia'
+  | 'esports'
   | 'europe';
 
 export type Continent = 'americas' | 'asia' | 'europe'

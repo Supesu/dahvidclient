@@ -83,7 +83,7 @@ export class LeagueResource extends BaseResource {
    *
    * @param { string } encryptedSummonerId Summoner Identifier
    * @param { Region } region Region to execute request to
-   * @returns
+   * @returns { Promise<LeagueEntryDTO[]> }
    */
   public async bySummonerId(encryptedSummonerId: string, region: Region): Promise<LeagueEntryDTO[]> {
     return await this._client._apiCall<LeagueEntryDTO[]>({
