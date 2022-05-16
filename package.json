@@ -19,6 +19,9 @@
   "files": [
     "/dist"
   ],
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
+  },
   "scripts": {
     "build": "npm run build:clean && npm run build:package && npm run build:types",
     "build:clean": "rm -rf dist",
