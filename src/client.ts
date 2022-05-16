@@ -12,6 +12,7 @@ import {
   ChampionMasteryResource,
   ChampionResource,
   ClashResource,
+  LeagueExpResource,
 } from './resources';
 import { Region } from './types';
 import { regionMap } from './models';
@@ -118,6 +119,12 @@ export class DahvidClient {
    */
   clash: ClashResource;
 
+  /**
+   * @category Resource
+   * @inheritdoc LeagueExpResource
+   */
+  leagueExp: LeagueExpResource;
+
   constructor(config: DahvidClientConfig) {
     if (!isNode()) {
       throw new Error(
@@ -143,6 +150,7 @@ export class DahvidClient {
     this.championMastery = new ChampionMasteryResource(this);
     this.champion = new ChampionResource(this);
     this.clash = new ClashResource(this);
+    this.leagueExp = new LeagueExpResource(this);
   }
 
   private _authorizeRequest(config: AxiosRequestConfig): AxiosRequestConfig {
