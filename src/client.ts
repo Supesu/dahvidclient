@@ -4,7 +4,7 @@ import type { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { isNode, pick } from './utilts';
 import type { StatusError } from './models';
 
-import { SummonerResource, LeagueResource, MatchResource, AccountResource, ChampionMasteryResource } from './resources';
+import { SummonerResource, LeagueResource, MatchResource, AccountResource, ChampionMasteryResource, ChampionResource } from './resources';
 import { Region } from './types';
 import { regionMap } from './models';
 
@@ -94,6 +94,12 @@ export class DahvidClient {
 
   /**
    * @category Resource
+   * @inheritdoc ChampionResource;
+   */
+  champion: ChampionResource;
+
+  /**
+   * @category Resource
    * @inheritdoc ChampionMasteryResource
    */
   championMastery: ChampionMasteryResource;
@@ -121,6 +127,7 @@ export class DahvidClient {
     this.account = new AccountResource(this);
     this.match = new MatchResource(this);
     this.championMastery = new ChampionMasteryResource(this);
+    this.champion = new ChampionResource(this);
   }
 
   private _authorizeRequest(config: AxiosRequestConfig): AxiosRequestConfig {

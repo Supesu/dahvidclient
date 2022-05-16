@@ -4,3 +4,4 @@ export * from './league.resource';
 export * from './match.resource';
 export * from './account.resource';
 export * from './championmastery.resource';
+export * from './champion.resource';
