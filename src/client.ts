@@ -11,6 +11,7 @@ import {
   AccountResource,
   ChampionMasteryResource,
   ChampionResource,
+  ChallengesResource,
   ClashResource,
   LeagueExpResource,
 } from './resources';
@@ -125,6 +126,12 @@ export class DahvidClient {
    */
   leagueExp: LeagueExpResource;
 
+  /**
+   * @category Resource
+   * @inheritdoc ChallengesResource
+   */
+  challenges: ChallengesResource;
+
   constructor(config: DahvidClientConfig) {
     if (!isNode()) {
       throw new Error(
@@ -151,6 +158,7 @@ export class DahvidClient {
     this.champion = new ChampionResource(this);
     this.clash = new ClashResource(this);
     this.leagueExp = new LeagueExpResource(this);
+    this.challenges = new ChallengesResource(this);
   }
 
   private _authorizeRequest(config: AxiosRequestConfig): AxiosRequestConfig {
