@@ -1,6 +1,6 @@
 {
   "name": "dahvidclient",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A riot api wrapper",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -19,9 +19,6 @@
   "files": [
     "/dist"
   ],
-  "publishConfig": {
-    "registry":"https://npm.pkg.github.com"
-  },
   "scripts": {
     "build": "npm run build:clean && npm run build:package && npm run build:types",
     "build:clean": "rm -rf dist",
