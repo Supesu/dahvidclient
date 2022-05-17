@@ -1,3 +1,5 @@
+import { Continent } from "../types";
+
 export const regionMap: Record<string, string> = {
   oce: 'oc1',
   na: 'na1',
@@ -20,4 +22,22 @@ export const regionMap: Record<string, string> = {
   la1: 'la1',
   la2: 'la2',
   tr1: 'tr1',
+  americas: 'americas',
+  europe: 'europe',
+  asia: 'asia'
 };
+
+export const regionToContinentMap: Record<string, Continent> = {
+  oce: 'americas',
+  na: 'americas',
+  br: 'europe',
+  eune: 'europe',
+  euw: 'europe',
+  kr: 'asia',
+  jp: 'asia',
+  las: 'americas',
+  lan: 'americas',
+  tr: 'europe',
+  ru: 'europe',
+  oc1: 'americas',
+}
