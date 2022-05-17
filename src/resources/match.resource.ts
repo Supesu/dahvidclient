@@ -1,5 +1,5 @@
 import { BaseResource } from './base.resource';
-import type { MatchDto, MatchTimelineDto } from '../models';
+import type { MatchDto, MatchTimelineDto, OptionalByPuuidParameters } from '../models';
 import { createstringOfLength, stringOfLength, Continent } from '../types';
 
 /**
@@ -27,9 +27,31 @@ export class MatchResource extends BaseResource {
    *
    * @param encryptedPUUID Summoner Identifier
    * @param region Region to execute request to
+   * @param optional Optional parameters to add to request (primarily filters)
    * @returns { Promise<Array<string>> } string[] | StatusError | AxiosError
    */
-  public async byPuuid(encryptedPUUID: string, region: Continent): Promise<Array<string>> {
+  public async byPuuid(
+    encryptedPUUID: string,
+    region: Continent,
+    optional?: OptionalByPuuidParameters,
+  ): Promise<Array<string>> {
+    if (optional) {
+      var p = '';
+
+      for await (var param of Object.keys(optional)) {
+        if (optional[param]) {
+          if (Object.keys(optional).findIndex((value) => value == param) == 0)
+            p += `?${param}=${optional[param]}`; // another scuffed line, seems fine but if you can think of better way please PR
+          else p += `&${param}=${optional[param]}`;
+        }
+      }
+
+      return await this._client._apiCall<Array<string>>({
+        path: `/lol/match/v5/matches/by-puuid/${encryptedPUUID}/ids${p}`,
+        region,
+      });
+    }
+
     return await this._client._apiCall<Array<string>>({
       path: `/lol/match/v5/matches/by-puuid/${encryptedPUUID}/ids`,
       region,
