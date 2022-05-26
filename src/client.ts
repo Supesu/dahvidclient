@@ -16,7 +16,7 @@ import {
   LeagueExpResource,
 } from './resources';
 import { Region } from './types';
-import { regionMap } from './models';
+import { RegionMap } from './models';
 
 export type RiotErrorResponse = {};
 const allowedAxiosOptions = ['headers', 'timeout', 'proxy', 'retries'] as const;
@@ -172,7 +172,7 @@ export class DahvidClient {
   }
 
   private _applyRegion(config: AxiosRequestConfig, region: Region): AxiosRequestConfig {
-    const _region = regionMap[region] || regionMap[this.defaultRegion];
+    const _region = RegionMap[region] || RegionMap[this.defaultRegion];
     const baseUrl = 'https://REGION.api.riotgames.com'.replace('REGION', _region);
 
     return {
