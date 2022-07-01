@@ -15,7 +15,7 @@ import {
   ClashResource,
   LeagueExpResource,
 } from './resources';
-import { Region } from './types';
+import { Continent, Region } from './types';
 import { regionMap } from './models';
 
 export type RiotErrorResponse = {};
@@ -28,11 +28,18 @@ export type DahvidClientConfig = {
   apiKey: string;
 
   /**
-   * Default region to apply if invalid region is provided
+   * Default region to apply if invalid region is provided and is required
    *
    * @defaultvalue `oc1`
    */
   defaultRegion?: Region;
+
+  /**
+   * Default continent to appy if continent is not provided and required
+   * 
+   * @defaultvalue 'sea'
+   */
+  defaultContinent?: Continent;
 
   /**
    * Additional headers that will be included in each request.

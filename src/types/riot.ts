@@ -28,4 +28,4 @@ export type Region =
   | 'esports'
   | 'europe';
 
-export type Continent = 'americas' | 'asia' | 'europe'
+export type Continent = 'americas' | 'asia' | 'europe' | 'sea';
