@@ -26,6 +26,7 @@ export type Region =
   | 'americas'
   | 'asia'
   | 'esports'
-  | 'europe';
+  | 'europe'
+  | 'sea';
 
 export type Continent = 'americas' | 'asia' | 'europe' | 'sea';

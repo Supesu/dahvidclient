@@ -103,17 +103,19 @@ RIOT_API_KEY=YOUR_API_KEY_HERE
 ```
 ```js
 // index.js
-const { DahvidClient } = require("dahvidclient");
+const { DahvidClient, RegionToContinentMap } = require("dahvidclient");
 
 const api = new DahvidClient({ apiKey: process.env.RIOT_API_KEY });
 
-async function main() {
-    const res = await api.summoner.byName("possum2002", "oce");
-
-    console.log(res);
-}
-
-main();
+(async () => {
+  const summoner = await api.summoner.byName("possum2002", "oce") // get account information
+  const cairoPuuid = summoner.puuid; 
+  const matchList = await api.match.byPuuid(cairoPuuid, RegionToContinentMap["oce"], { count: 1 }); // get the most recent game id
+  const match = await api.match.matchById(matchList[0], RegionToContinentMap["oce"]); // get match information with game id
+  const cairo = match.info.participants.find((p) => p.puuid === cairoPuuid); 
+  
+  console.log(`KDA: ${cairo.kills} / ${cairo.deaths} / ${cairo.assists}`)
+})();
 ```
 ```sh
 node -r dotenv/config index.js

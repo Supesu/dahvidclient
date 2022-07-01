@@ -196,3 +196,15 @@ export type TeamDto = {
   teamId: number;
   win: boolean;
 };
+
+export type OptionalByPuuidParameters = Partial<{
+  startTime: number; // Epoch timestamp in seconds. The matchlist started storing timestamps on June 16th, 2021. Any matches played before June 16th, 2021 won't be included in the results if the startTime filter is set.
+  endtime: number; // epoch timestamp in seconds
+  queue: number; // filter the list of match ids by a specific queue id. this filter is mutually inclusive of the type filter meaning any match ids returned must match both the queue and type filters
+  type: string; // 	Filter the list of match ids by the type of match. This filter is mutually inclusive of the queue filter meaning any match ids returned must match both the queue and type filters.
+  start: number; // Defaults to 0. Start index.
+  count: number; // 	Defaults to 20. Valid values: 0 to 100. Number of match ids to return.
+
+  // This is kinda scuffed, if you can think of a better way to do this and keep typings (Record seems to remove auto-complete) please PR
+  [key: string]: any;
+}>;
