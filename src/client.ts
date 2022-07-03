@@ -17,6 +17,7 @@ import {
 } from './resources';
 import { Region, Continent } from './types';
 import { RegionMap } from './models';
+import { DatadragonResource } from './resources/datadragon.resource';
 
 export type RiotErrorResponse = {};
 const allowedAxiosOptions = ['headers', 'timeout', 'proxy', 'retries'] as const;
@@ -139,6 +140,12 @@ export class DahvidClient {
    */
   challenges: ChallengesResource;
 
+  /**
+   * @category Resource
+   * @inheritdoc DatadragonResource;
+   */
+  datadragon: DatadragonResource;
+
   constructor(config: DahvidClientConfig) {
     if (!isNode()) {
       throw new Error(
@@ -166,6 +173,7 @@ export class DahvidClient {
     this.clash = new ClashResource(this);
     this.leagueExp = new LeagueExpResource(this);
     this.challenges = new ChallengesResource(this);
+    this.datadragon = new DatadragonResource(this)
   }
 
   private _authorizeRequest(config: AxiosRequestConfig): AxiosRequestConfig {
