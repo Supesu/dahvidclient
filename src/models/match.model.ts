@@ -161,7 +161,7 @@ export type PerkStatsDto = {
 
 export type PerkStyleDto = {
   description: string;
-  selections: PerkStyleSelectionDto;
+  selections: PerkStyleSelectionDto[];
   style: number;
 };
 
