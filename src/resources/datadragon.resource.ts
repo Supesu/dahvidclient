@@ -5,12 +5,30 @@ export class DatadragonResource extends BaseResource {
   /**
    * Obtains list of datadragon versions
    *
-   * @example
-   * // returns "v4"
    *
-   * @returns { string } endpoint version
+   * @returns { string[] } endpoint versions
    */
   public versions(): Promise<string> {
     return axios.get('https://ddragon.leagueoflegends.com/api/versions.json').then((data) => data.data);
+  }
+
+  /**
+   * obtains runes reforged json file
+   *
+   */
+  public runesReforged(version: string): Promise<string> {
+    return axios
+      .get(`https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/runesReforged.json`)
+      .then((data) => data.data);
+  }
+
+  /**
+   * obtains summoner json file
+   *
+   */
+  public summoner(version: string): Promise<string> {
+    return axios
+      .get(`https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/summoner.json`)
+      .then((data) => data.data);
   }
 }
