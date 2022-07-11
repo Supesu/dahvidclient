@@ -129,6 +129,7 @@ node -r dotenv/config index.js
 ## Roadmap
 
 - [ ] Finish mapping API to /src/resources
+- [ ] Finish types
 - [ ] Queue & rate limiting 
 - [ ] Better Documentation & examples
 
