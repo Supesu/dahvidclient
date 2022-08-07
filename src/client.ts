@@ -12,6 +12,7 @@ import {
   ChampionMasteryResource,
   ChampionResource,
   ChallengesResource,
+  SpectatorResource,
   ClashResource,
   LeagueExpResource,
 } from './resources';
@@ -37,7 +38,7 @@ export type DahvidClientConfig = {
 
   /**
    * Default continent to appy if continent is not provided and required
-   * 
+   *
    * @defaultvalue 'sea'
    */
   defaultContinent?: Continent;
@@ -146,6 +147,12 @@ export class DahvidClient {
    */
   datadragon: DatadragonResource;
 
+  /**
+   * @category Resource
+   * @inheritdoc SpectatorResource;
+   */
+  spectator: SpectatorResource;
+
   constructor(config: DahvidClientConfig) {
     if (!isNode()) {
       throw new Error(
@@ -173,7 +180,8 @@ export class DahvidClient {
     this.clash = new ClashResource(this);
     this.leagueExp = new LeagueExpResource(this);
     this.challenges = new ChallengesResource(this);
-    this.datadragon = new DatadragonResource(this)
+    this.datadragon = new DatadragonResource(this);
+    this.spectator = new SpectatorResource(this);
   }
 
   private _authorizeRequest(config: AxiosRequestConfig): AxiosRequestConfig {

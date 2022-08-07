@@ -8,3 +8,4 @@ export * from './champion.resource';
 export * from './clash.resource';
 export * from './leagueexp.resource';
 export * from './challenges.resource';
+export * from './spectator.resource';

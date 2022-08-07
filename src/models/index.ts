@@ -8,3 +8,4 @@ export * from './championmastery.model';
 export * from './champion.model';
 export * from './clash.model';
 export * from './challenges.model';
+export * from './spectator.model';
